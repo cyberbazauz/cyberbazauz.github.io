@@ -56,7 +56,7 @@ export function About() {
             <div className="identity" aria-label={t('about.identityAria')}>
               <div className="identity-grid">
                 <div className="identity-mark">
-                  D<i>/</i>P
+                  {PROFILE.mark.split('/')[0]}<i>/</i>{PROFILE.mark.split('/')[1] || 'M'}
                 </div>
                 <div className="identity-fields">
                   <div className="identity-field">

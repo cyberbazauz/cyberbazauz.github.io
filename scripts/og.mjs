@@ -62,12 +62,12 @@ const html = `<!doctype html>
       <ellipse cx="0" cy="0" rx="98" ry="20" opacity="0.18" transform="rotate(-60)"/>
     </g>
   </svg>
-  <div class="num"><b>D/P</b>&nbsp;&nbsp;PORTFOLIO / {YEAR}</div>
-  <div class="name">DAVID</div>
-  <div class="roles">SOFTWARE · AI · CYBERSECURITY</div>
+  <div class="num"><b>I/M</b>&nbsp;&nbsp;PORTFOLIO / {YEAR}</div>
+  <div class="name">ISLOMBEK</div>
+  <div class="roles">AI ENGINEER · SOFTWARE · CYBERSECURITY</div>
   <div class="strip"></div>
-  <div class="tag">A <b>system</b> for building ideas — ideas in, products out</div>
-  <div class="lv">magus24.github.io<span class="dash">/</span>portfolio</div>
+  <div class="tag">BUILDING WHAT SEEMED <b>IMPOSSIBLE</b> — AI MAKES IT REAL</div>
+  <div class="lv">cyberbazauz.github.io</div>
 </body>
 </html>`
 

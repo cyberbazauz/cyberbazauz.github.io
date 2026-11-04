@@ -2,12 +2,12 @@ import type { Messages } from './types'
 
 const uz: Messages = {
   meta: {
-    title: 'David — Portfolio — Dasturiy ta’minot, AI va kiberxavfsizlik',
+    title: 'Islombek Muqimov — Portfolio — AI muhandisi, dasturiy ta’minot va xavfsizlik',
     description:
-      'David — AI va kiberxavfsizlikka ixtisoslashgan dasturiy ta’minot muhandisi. G‘oyalar quradigan tizim: loyihalar, tajribalar, texnologiyalar va ular ortidagi hikoya.',
-    ogTitle: 'David — Portfolio — Dasturiy ta’minot, AI va kiberxavfsizlik',
+      'Islombek Muqimov — sun’iy intellekt muhandisi. Imkonsiz tuyulgan narsalarni yarataman: AI buni haqiqatga aylantiradi. Neyron tizimlar, modellar va mustahkam dasturiy ta’minot.',
+    ogTitle: 'Islombek Muqimov — Portfolio — AI muhandisi',
     ogDescription:
-      'G‘oyalar quradigan tizim: loyihalar, tajribalar, texnologiyalar va ular ortidagi hikoya.',
+      'Imkonsiz tuyulgan narsalarni yarataman. AI buni haqiqatga aylantiradi.',
   },
   app: {
     skip: 'Loyihalarga o‘tish',
@@ -90,8 +90,8 @@ const uz: Messages = {
   hero: {
     aria: 'Kirish',
     kickerPrefix: 'Portfolio — ',
-    headline: ['MEN BO‘LISHI KERAK BO‘LGAN', 'NARSALARNI YARATAMAN.'],
-    dragHint: 'yadroni aylantiring',
+    headline: ['IMKONSIZ TUYULGAN NARSALARNI YARATAMAN.', 'AI BUNI HAQIQATGA AYLANTIRADI.'],
+    dragHint: 'tarmoqni aylantiring',
     explore: 'Ishlarni ko‘rish',
     statProjects: 'LOYIHALAR',
     statExperiments: 'TAJRIBALAR',
@@ -121,15 +121,15 @@ const uz: Messages = {
     factTimezone: 'Vaqt mintaqasi',
     factStatus: 'Holat',
     manifestoPre: 'Men ',
-    manifestoEm1: "dasturiy ta'minot, sun'iy intellekt va xavfsizlik",
+    manifestoEm1: "sun'iy intellekt, dasturiy ta'minot va xavfsizlik",
     manifestoMid:
-      " kesishmasida ishlayman — interfeyslar, modellar va himoya qatlamlarini quraman. Ularni bog‘lovchi narsa bitta: murakkab muammoni olib, uni ",
-    manifestoEm2: 'tizimga',
-    manifestoPost: ' aylantirish va foydali bo‘lguncha yetkazish.',
-    disciplines: ["Dasturiy injiniring", "Sun'iy intellekt", 'Kiberxavfsizlik'],
+      " ilg‘or sohalarida ishlayman — imkonsiz tuyulgan narsalarni ilg'or AI modellar orqali ",
+    manifestoEm2: 'ishchi tizimlarga',
+    manifestoPost: " aylantiraman. Sun'iy intellekt imkonsizni haqiqatga aylantiradi, men esa uni ishonchli mahsulotga aylantiraman.",
+    disciplines: ["Sun'iy intellekt & ML", "Dasturiy injiniring", 'Kiberxavfsizlik'],
     identityAria: 'Identifikatsiya kartasi',
     identitySystem: 'Tizim',
-    identitySystemValue: 'D/P — bir marta qur, doim ishlat',
+    identitySystemValue: 'I/M — G‘oya, Arxitektura, Ijro',
     identityState: 'Holat',
     identityStateValue: 'Loyihalar uchun ochiq',
   },

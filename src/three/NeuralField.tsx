@@ -9,6 +9,7 @@ import { dampValue } from './math'
 import { createNeuralSystem, type NeuralSystem } from './system'
 import { TransferPulse } from './TransferPulse'
 import { BrainCortex } from './BrainCortex'
+import { InnerNeuralConnectome } from './InnerNeuralConnectome'
 import { NeuralCyberEffects } from './NeuralCyberEffects'
 
 /** Shared event channel: NeuralField raises pulses, the scene reacts to them. */
@@ -200,6 +201,15 @@ export function NeuralField({
         mouseLocal={mouseLocal}
         mouseSpeed={smoothSpeed.current}
         clickPulse={clickPulse.current}
+      />
+      <InnerNeuralConnectome
+        spec={spec}
+        morph={s.current.phase}
+        opacity={s.current.op}
+        mouseLocal={mouseLocal}
+        mouseSpeed={smoothSpeed.current}
+        clickPulse={clickPulse.current}
+        reducedMotion={reducedMotion}
       />
       <NeuralCyberEffects
         morph={s.current.phase}

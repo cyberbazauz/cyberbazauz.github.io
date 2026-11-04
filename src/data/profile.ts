@@ -1,5 +1,6 @@
 export interface Profile {
   name: string
+  fullName?: string
   mark: string
   roles: readonly string[]
   headline: readonly [string, string]
@@ -16,22 +17,23 @@ export interface Profile {
 }
 
 /**
- * Placeholder contact data — replace with your own before publishing.
+ * Real profile & contact data for Islombek Muqimov.
  */
 export const PROFILE: Profile = {
-  name: 'DAVID',
-  mark: 'D/P',
-  roles: ['SOFTWARE', 'AI', 'CYBERSECURITY'],
-  headline: ['I BUILD THINGS', 'THAT SHOULD EXIST.'],
+  name: 'ISLOMBEK',
+  fullName: 'Islombek Muqimov',
+  mark: 'I/M',
+  roles: ['AI ENGINEER', 'SOFTWARE', 'CYBERSECURITY'],
+  headline: ['BUILDING WHAT SEEMED IMPOSSIBLE.', 'AI MAKES IT REAL.'],
   manifesto:
-    'A portfolio is not a list of works — it is a system: ideas in, products out. This page is an engine. Everything you see is a function of data, geometry and intent.',
+    'Building what once seemed impossible. Turning cutting-edge artificial intelligence, robust architectures, and clean engineering into products that actually work.',
   location: 'Uzbekistan',
   timezone: 'UTC+5',
-  disciplines: ['Software Engineering', 'AI', 'Cybersecurity'],
-  availability: ['Projects', 'Research', 'Collaboration'],
-  email: 'magus24.dev@gmail.com',
-  github: 'https://github.com/magus24',
-  telegram: 'https://t.me/magus24',
-  linkedin: 'https://linkedin.com/in/magus24',
+  disciplines: ['AI & Machine Learning', 'Software Engineering', 'Cybersecurity'],
+  availability: ['AI Engineering', 'Full-time / Projects', 'Research'],
+  email: 'm.islombek24@gmail.com',
+  github: 'https://github.com/cyberbazauz',
+  telegram: 'https://t.me/cyber_islam',
+  linkedin: 'https://linkedin.com/in/cyber-islam',
   year: 2026,
 }

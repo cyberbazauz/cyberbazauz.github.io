@@ -728,7 +728,7 @@ export function CyberProjectMock({ project }: { project?: Project }) {
           {/* Top telemetry grid */}
           <rect x="15" y="15" width="290" height="30" rx="3" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" />
           <text x="25" y="34" fill="#00f0ff" fontSize="8" fontFamily="ui-monospace, monospace">
-            SRC: GITHUB.COM/MAGUS24
+            SRC: GITHUB.COM/CYBERBAZAUZ
           </text>
           <text x="210" y="34" fill="#4ade80" fontSize="8" fontFamily="ui-monospace, monospace">
             BUILD: PASSING

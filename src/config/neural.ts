@@ -12,6 +12,8 @@ export interface NeuralTierBudget {
   nodes: number
   /** soft cap — the generator stops adding connections once reached */
   edges: number
+  connectomeNodes: number
+  connectomeFilaments: number
   signals: number
   stars: number
 }
@@ -75,9 +77,9 @@ export interface NeuralConfig {
 
 export const NEURAL_CONFIG: NeuralConfig = {
   tiers: {
-    1: { nodes: 100, edges: 110, signals: 4, stars: 100 },
-    2: { nodes: 210, edges: 240, signals: 8, stars: 160 },
-    3: { nodes: 340, edges: 400, signals: 12, stars: 220 },
+    1: { nodes: 100, edges: 110, connectomeNodes: 1500, connectomeFilaments: 3200, signals: 4, stars: 100 },
+    2: { nodes: 210, edges: 240, connectomeNodes: 3000, connectomeFilaments: 6400, signals: 8, stars: 160 },
+    3: { nodes: 340, edges: 400, connectomeNodes: 4800, connectomeFilaments: 10200, signals: 12, stars: 220 },
   },
   clusters: 8,
   coreRadius: 0.55,
@@ -120,9 +122,9 @@ export function neuralBudget(spec: Spec): NeuralTierBudget {
   return NEURAL_CONFIG.tiers[tierFor(spec)]
 }
 
-/** Total neural nodes rendered — used by the CoreStatus readout. */
+/** Total neural connectome nodes rendered — used by the CoreStatus readout. */
 export function networkNodeCount(spec: Spec): number {
-  return neuralBudget(spec).nodes
+  return neuralBudget(spec).connectomeNodes
 }
 
 /**

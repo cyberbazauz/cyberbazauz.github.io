@@ -229,7 +229,7 @@ export function Navigation() {
           aria-label={t('app.backToTop')}
           onClick={() => (open ? close() : goTop())}
         >
-          D<i>/</i>P
+          {PROFILE.mark.split('/')[0]}<i>/</i>{PROFILE.mark.split('/')[1] || 'M'}
         </button>
 
         <span className="header-center" aria-hidden="true">

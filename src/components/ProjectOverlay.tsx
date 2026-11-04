@@ -116,7 +116,7 @@ export function ProjectOverlay({ project, onClose }: ProjectOverlayProps) {
                     }}
                   >
                     <GithubIcon size={12} />
-                    <span>magus24/{project.id}</span>
+                    <span>cyberbazauz/{project.id}</span>
                     <ExternalLink size={10} style={{ opacity: 0.7 }} />
                   </a>
                 )}

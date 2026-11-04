@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://magus24.github.io/sitemap.xml
+Sitemap: https://cyberbazauz.github.io/sitemap.xml

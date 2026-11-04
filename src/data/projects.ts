@@ -60,7 +60,7 @@ export const PROJECTS: Project[] = [
     description:
       'Real-time 3D telemetry, collision avoidance, and n-body orbital simulation for low-Earth satellite constellations with WebSockets.',
     visual: 'sputnik',
-    github: 'https://github.com/magus24/Sputnik-AI',
+    github: 'https://github.com/cyberbazauz/Sputnik-AI',
     meta: { year: '2026', role: 'Architect / 3D Engineer', type: 'Digital Twin' },
     case: {
       overview:
@@ -90,7 +90,7 @@ export const PROJECTS: Project[] = [
     description:
       'Autonomous intelligence pipeline ingesting Telegram channels, deduplicating threat vectors via pgvector embeddings, and mapping fraud syndicates in Neo4j.',
     visual: 'passiveagent',
-    github: 'https://github.com/magus24/PassiveAgent',
+    github: 'https://github.com/cyberbazauz/PassiveAgent',
     meta: { year: '2026', role: 'Security Architect', type: 'Threat Intel' },
     case: {
       overview:
@@ -120,7 +120,7 @@ export const PROJECTS: Project[] = [
     description:
       'Kiosk fullscreen proctoring sandbox with focus-loss watchdog, zero-dependency OpenXML parsing, and PBKDF2 encryption preventing exam tampering.',
     visual: 'examguard',
-    github: 'https://github.com/magus24/ExamGuard',
+    github: 'https://github.com/cyberbazauz/ExamGuard',
     meta: { year: '2026', role: 'Security Engineering', type: 'Desktop Platform' },
     case: {
       overview:
@@ -150,7 +150,7 @@ export const PROJECTS: Project[] = [
     description:
       'Real-time obstacle avoidance and traffic light detection with offline Uzbek neural voice synthesis running entirely on mobile/edge hardware.',
     visual: 'medvision',
-    github: 'https://github.com/magus24/MedVision',
+    github: 'https://github.com/cyberbazauz/MedVision',
     meta: { year: '2026', role: 'ML & Edge AI Engineer', type: 'Assistive Tech' },
     case: {
       overview:
@@ -180,7 +180,7 @@ export const PROJECTS: Project[] = [
     description:
       'Autonomous edge drone system detecting fire and smoke in real-time, computing target drop coordinates, and triggering extinguisher payloads via ESP32 UART.',
     visual: 'firedetect',
-    github: 'https://github.com/magus24/FireDetect',
+    github: 'https://github.com/cyberbazauz/FireDetect',
     meta: { year: '2026', role: 'Robotics & Vision Engineer', type: 'Robotics' },
     case: {
       overview:
@@ -209,7 +209,7 @@ export const PROJECTS: Project[] = [
     description:
       'Generates bounded L-infinity perturbations that disrupt facial recognition pipelines (ArcFace / Inswapper) while remaining invisible to human eyes.',
     visual: 'antifake',
-    github: 'https://github.com/magus24/AntiFake',
+    github: 'https://github.com/cyberbazauz/AntiFake',
     meta: { year: '2026', role: 'Research / ML', type: 'Research' },
     case: {
       overview:
@@ -238,7 +238,7 @@ export const PROJECTS: Project[] = [
     description:
       'A campus dormitory as a unified operating system: student database, floor-room-bed occupancy graph, automated check-ins, duty shifts, and audit reporting.',
     visual: 'yotoqhonam',
-    github: 'https://github.com/magus24/yotoqhonam',
+    github: 'https://github.com/cyberbazauz/yotoqhonam',
     meta: { year: '2026', role: 'Full-stack Architect', type: 'Platform' },
     case: {
       overview:
@@ -267,7 +267,7 @@ export const PROJECTS: Project[] = [
     description:
       'Multilingual marketplace platform with interactive 3D virtual premises inspection, geolocation mapping, and LLM-driven appointment booking.',
     visual: 'hizmattop',
-    github: 'https://github.com/magus24/HizmatTop',
+    github: 'https://github.com/cyberbazauz/HizmatTop',
     meta: { year: '2026', role: 'Full-stack Developer', type: 'Marketplace' },
     case: {
       overview:
@@ -296,7 +296,7 @@ export const PROJECTS: Project[] = [
     description:
       'Interactive hydraulic supply map with unsupervised Isolation Forest ML identifying pipe ruptures, anomalous pressure drops, and supply leaks in Kuvasoy.',
     visual: 'smartwater',
-    github: 'https://github.com/magus24/SmartWater-Controle',
+    github: 'https://github.com/cyberbazauz/SmartWater-Controle',
     meta: { year: '2026', role: 'Data Scientist & Backend', type: 'Smart Infrastructure' },
     case: {
       overview:
@@ -325,7 +325,7 @@ export const PROJECTS: Project[] = [
     description:
       'Neural audio transcription, speaker segmentation, and semantic summarization specifically tuned for colloquial Uzbek and bilingual Russian-Uzbek speech.',
     visual: 'eshitaman',
-    github: 'https://github.com/magus24/eshitaman',
+    github: 'https://github.com/cyberbazauz/eshitaman',
     meta: { year: '2026', role: 'NLP / Speech Engineer', type: 'Speech AI' },
     case: {
       overview:
@@ -354,7 +354,7 @@ export const PROJECTS: Project[] = [
     description:
       'Real-time municipal camera stream analytics detecting illegal waste accumulation and auto-generating geo-tagged dispatch work orders for sanitation fleets.',
     visual: 'ecobot',
-    github: 'https://github.com/magus24/EcoBot',
+    github: 'https://github.com/cyberbazauz/EcoBot',
     meta: { year: '2026', role: 'CV & Backend Engineer', type: 'Smart City' },
     case: {
       overview:
@@ -383,7 +383,7 @@ export const PROJECTS: Project[] = [
     description:
       'WIUT Hackathon CV track project: high-precision vehicle trajectory tracking and kinematic collision anticipation from stationary street cameras.',
     visual: 'wiutcv',
-    github: 'https://github.com/magus24/wiut-cv-track',
+    github: 'https://github.com/cyberbazauz/wiut-cv-track',
     meta: { year: '2026', role: 'Team Lead / CV Engineer', type: 'Hackathon Project' },
     case: {
       overview:
@@ -412,7 +412,7 @@ export const PROJECTS: Project[] = [
     description:
       'Web operations center consuming real-time CV analytics to visualize traffic density, compute intersection congestion indices, and optimize traffic light phases.',
     visual: 'smarttraffic',
-    github: 'https://github.com/magus24/smart-traffic',
+    github: 'https://github.com/cyberbazauz/smart-traffic',
     meta: { year: '2026', role: 'Frontend Architect', type: 'Smart Infrastructure' },
     case: {
       overview:
@@ -441,7 +441,7 @@ export const PROJECTS: Project[] = [
     description:
       'Low-level GPU computer vision pipeline computing lane occupancy, pedestrian crosswalk breaches, and speeding telemetry on multiple simultaneous RTSP streams.',
     visual: 'wiutcv',
-    github: 'https://github.com/magus24/smart-traffic-cv',
+    github: 'https://github.com/cyberbazauz/smart-traffic-cv',
     meta: { year: '2026', role: 'CV Backend Engineer', type: 'Computer Vision' },
     case: {
       overview:
@@ -470,7 +470,7 @@ export const PROJECTS: Project[] = [
     description:
       'Distributed web security gateway inspecting HTTP traffic in real time, calculating behavioral anomaly scores, and auto-mitigating zero-day attacks.',
     visual: 'shieldx',
-    github: 'https://github.com/magus24/ShieldX',
+    github: 'https://github.com/cyberbazauz/ShieldX',
     meta: { year: '2026', role: 'Security Engineering', type: 'SIEM / WAF' },
     case: {
       overview:
@@ -499,7 +499,7 @@ export const PROJECTS: Project[] = [
     description:
       'Security auditing framework and simulation bot created for corporate red-team training, credential stuffing analysis, and user awareness defense.',
     visual: 'cyber',
-    github: 'https://github.com/magus24/TelegrambotFishing',
+    github: 'https://github.com/cyberbazauz/TelegrambotFishing',
     meta: { year: '2026', role: 'Security Researcher', type: 'Red Team Tool' },
     case: {
       overview:
@@ -528,7 +528,7 @@ export const PROJECTS: Project[] = [
     description:
       'Edge retail camera analytics tracking shelf replenishment levels, out-of-stock items, and customer dwell time metrics in supermarket aisles.',
     visual: 'cyber',
-    github: 'https://github.com/magus24/smart-retail-assistant',
+    github: 'https://github.com/cyberbazauz/smart-retail-assistant',
     meta: { year: '2026', role: 'Full-stack / Vision', type: 'Retail AI' },
     case: {
       overview:
@@ -557,7 +557,7 @@ export const PROJECTS: Project[] = [
     description:
       'Interactive sustainability metrics platform visualizing recyclable materials flow, carbon offset indexes, and industrial resource recircuits.',
     visual: 'cyber',
-    github: 'https://github.com/magus24/EcoOrbit',
+    github: 'https://github.com/cyberbazauz/EcoOrbit',
     meta: { year: '2026', role: 'Frontend Engineer', type: 'Data Visualization' },
     case: {
       overview:
@@ -586,8 +586,8 @@ export const PROJECTS: Project[] = [
     description:
       'High-performance 3D spatial portfolio featuring anatomically guided human and machine neural cortexes, cursor raycasting flares, and reactive audio telemetry.',
     visual: 'cyber',
-    github: 'https://github.com/magus24/magus24.github.io',
-    demo: 'https://magus24.github.io',
+    github: 'https://github.com/cyberbazauz/cyberbazauz.github.io',
+    demo: 'https://cyberbazauz.github.io',
     meta: { year: '2026', role: 'Full-stack & Creative Dev', type: 'Spatial Web' },
     case: {
       overview:

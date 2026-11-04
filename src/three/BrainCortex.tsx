@@ -84,10 +84,10 @@ const CORTEX_FRAGMENT_SHADER = /* glsl */ `
     vec3 rimCol = mix(uColorHumanRim, uColorAiRim, uMorph);
     vec3 baseCol = mix(uColorHumanBase, uColorAiBase, uMorph);
 
-    vec3 finalColor = baseCol * 0.16 + rimCol * (rim * 1.05 + pulse * 0.75 + ridge + mouseFlare * 1.35 + clickWave * 1.6);
+    vec3 finalColor = baseCol * 0.04 + rimCol * (rim * 1.25 + pulse * 0.8 + ridge * 0.25 + mouseFlare * 1.35 + clickWave * 1.6);
 
-    // Translucent holographic alpha: delicate ambient background presence
-    float alpha = (rim * 0.40 + pulse * 0.32 + ridge * 0.16 + mouseFlare * 0.42 + clickWave * 0.5 + 0.025) * uOpacity * 0.75;
+    // Translucent glass-holographic alpha: rim glows at glancing edges, center is crystal-clear to reveal inner neurons
+    float alpha = (rim * 0.55 + pulse * 0.28 + ridge * 0.12 + mouseFlare * 0.35 + clickWave * 0.45 + 0.008) * uOpacity * 0.65;
 
     if (alpha < 0.005) discard;
 

@@ -352,7 +352,7 @@ export function Work({ onOpen }: WorkProps) {
               : `MATCHING REPOSITORIES (${filteredProjects.length})`}
           </span>
           <span className="mono" style={{ fontSize: 11, color: '#00f0ff' }}>
-            GITHUB.COM/MAGUS24
+            GITHUB.COM/CYBERBAZAUZ
           </span>
         </div>
 

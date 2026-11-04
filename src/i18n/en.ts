@@ -2,12 +2,12 @@ import type { Messages } from './types'
 
 const en: Messages = {
   meta: {
-    title: 'David — Portfolio — Software, AI & Cybersecurity',
+    title: 'Islombek Muqimov — Portfolio — AI Engineer & Software',
     description:
-      'David — software engineer focused on AI and cybersecurity. A system for building ideas: projects, experiments, technology and the story behind them.',
-    ogTitle: 'David — Portfolio — Software, AI & Cybersecurity',
+      'Islombek Muqimov — AI engineer. Building what once seemed impossible: AI makes it real. Neural architectures, intelligent systems and robust software.',
+    ogTitle: 'Islombek Muqimov — Portfolio — AI Engineer',
     ogDescription:
-      'A system for building ideas: projects, experiments, technology and the story behind them.',
+      'Building what once seemed impossible. AI makes it real.',
   },
   app: {
     skip: 'Skip to projects',
@@ -90,8 +90,8 @@ const en: Messages = {
   hero: {
     aria: 'Introduction',
     kickerPrefix: 'Portfolio — ',
-    headline: ['I BUILD THINGS', 'THAT SHOULD EXIST.'],
-    dragHint: 'drag the core',
+    headline: ['BUILDING WHAT SEEMED IMPOSSIBLE.', 'AI MAKES IT REAL.'],
+    dragHint: 'drag the network',
     explore: 'Explore work',
     statProjects: 'PROJECTS',
     statExperiments: 'EXPERIMENTS',
@@ -120,16 +120,16 @@ const en: Messages = {
     factLocation: 'Location',
     factTimezone: 'Timezone',
     factStatus: 'Status',
-    manifestoPre: 'I operate at the intersection of ',
-    manifestoEm1: 'software, AI and security',
+    manifestoPre: 'I operate at the forefront of ',
+    manifestoEm1: 'AI engineering, software and security',
     manifestoMid:
-      ' — building interfaces, models and defensive layers. The thread between them is the same: take a messy problem, reduce it to a ',
-    manifestoEm2: 'system',
-    manifestoPost: ', and ship it until it is useful.',
-    disciplines: ['Software Engineering', 'AI', 'Cybersecurity'],
+      ' — building what once seemed impossible by turning advanced models into ',
+    manifestoEm2: 'working systems',
+    manifestoPost: '. AI makes the impossible real, and I engineer it into reliable products.',
+    disciplines: ['AI & Machine Learning', 'Software Engineering', 'Cybersecurity'],
     identityAria: 'Identity card',
     identitySystem: 'System',
-    identitySystemValue: 'D/P — build once, reuse forever',
+    identitySystemValue: 'I/M — Idea, Architecture, Execution',
     identityState: 'State',
     identityStateValue: 'Available for projects',
   },

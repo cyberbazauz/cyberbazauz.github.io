@@ -13,8 +13,6 @@ interface NeuralCyberEffectsProps {
   clickPulse?: number
 }
 
-const WAVE_COUNT = 3
-const WAVE_PERIOD = 3.2
 
 const LOBE_DEFS = [
   {
@@ -57,12 +55,9 @@ export function NeuralCyberEffects({
   clickPulse = 0,
 }: NeuralCyberEffectsProps) {
   const rootRef = useRef<THREE.Group>(null)
-  const coreInnerRef = useRef<THREE.Mesh>(null)
-  const coreWireRef = useRef<THREE.Mesh>(null)
   const stardustRef = useRef<THREE.Points>(null)
   const beamLinesRef = useRef<THREE.LineSegments>(null)
   const beamPhotonsRef = useRef<THREE.Points>(null)
-  const waveMeshes = useRef<(THREE.Mesh | null)[]>([])
   const lobeLinesRef = useRef<THREE.LineSegments>(null)
   const lobeSpritesRef = useRef<(THREE.Sprite | null)[]>([])
 
@@ -217,46 +212,7 @@ export function NeuralCyberEffects({
     const speedBoost = 1 + (velocity?.current ?? 0) * 0.8
     const rotSpeed = reducedMotion ? 0.3 : 1.0
 
-    // Color transition with morph
-    const warmGold = new THREE.Color('#fde68a')
-    const cyberCyan = new THREE.Color('#00f0ff')
-    const activeColor = warmGold.clone().lerp(cyberCyan, morph)
 
-    // 1. Thalamic Photonic Core pulsation inside the brain
-    const corePulse = (1.0 + Math.sin(t * (2.4 + morph * 2.0)) * 0.08) * (1.0 + clickPulse * 0.45)
-    const coreAlpha = (0.18 + morph * 0.22 + mouseSpeed * 0.15 + clickPulse * 0.4) * opacity
-
-    if (coreInnerRef.current) {
-      coreInnerRef.current.scale.setScalar(corePulse)
-      const mat = coreInnerRef.current.material as THREE.MeshBasicMaterial
-      mat.color.copy(activeColor)
-      mat.opacity = coreAlpha
-    }
-
-    if (coreWireRef.current) {
-      coreWireRef.current.rotation.x = t * 0.3 * rotSpeed
-      coreWireRef.current.rotation.y = t * 0.45 * rotSpeed
-      coreWireRef.current.scale.setScalar(corePulse * 1.22)
-      const mat = coreWireRef.current.material as THREE.MeshBasicMaterial
-      mat.color.copy(activeColor)
-      mat.opacity = (0.10 + morph * 0.18 + clickPulse * 0.3) * opacity
-    }
-
-    // 2. Brainwave EEG Hologram Waves (expanding outward from the brain center)
-    for (let i = 0; i < WAVE_COUNT; i++) {
-      const mesh = waveMeshes.current[i]
-      if (!mesh) continue
-
-      const wavePhase = ((t * 0.6 + (i * WAVE_PERIOD) / WAVE_COUNT) % WAVE_PERIOD) / WAVE_PERIOD
-      const r = (0.45 + wavePhase * 1.4) * (1.0 + clickPulse * 0.35)
-      mesh.scale.set(r, r, r)
-
-      // Fade in smoothly then fade out near edge
-      const waveAlpha = Math.sin(Math.PI * wavePhase) * (0.08 + morph * 0.15 + clickPulse * 0.3) * opacity
-      const mat = mesh.material as THREE.MeshBasicMaterial
-      mat.color.copy(activeColor)
-      mat.opacity = Math.max(0, waveAlpha)
-    }
 
     // 3. Synaptic Stardust drift (swirls with cursor in 3D)
     if (stardustRef.current) {
@@ -307,50 +263,6 @@ export function NeuralCyberEffects({
 
   return (
     <group ref={rootRef}>
-      {/* 1. Thalamic Photonic Core (Internal Glowing Brain Singularity) */}
-      <mesh ref={coreInnerRef} position={[0, -0.05, 0.05]} frustumCulled={false}>
-        <sphereGeometry args={[0.24, 20, 20]} />
-        <meshBasicMaterial
-          transparent
-          depthWrite={false}
-          blending={THREE.AdditiveBlending}
-          opacity={0.4}
-        />
-      </mesh>
-
-      {/* Core crystalline lattice */}
-      <mesh ref={coreWireRef} position={[0, -0.05, 0.05]} frustumCulled={false}>
-        <icosahedronGeometry args={[0.32, 1]} />
-        <meshBasicMaterial
-          wireframe
-          transparent
-          depthWrite={false}
-          blending={THREE.AdditiveBlending}
-          opacity={0.3}
-        />
-      </mesh>
-
-      {/* 2. Brainwave EEG Hologram Waves (Expanding Concentric Wave Rings) */}
-      {Array.from({ length: WAVE_COUNT }).map((_, idx) => (
-        <mesh
-          key={idx}
-          ref={(el) => {
-            waveMeshes.current[idx] = el
-          }}
-          rotation={[-Math.PI / 2.3, 0.2, 0]}
-          position={[0, -0.05, 0.05]}
-          frustumCulled={false}
-        >
-          <ringGeometry args={[0.98, 1.0, 64]} />
-          <meshBasicMaterial
-            transparent
-            depthWrite={false}
-            blending={THREE.AdditiveBlending}
-            side={THREE.DoubleSide}
-            opacity={0}
-          />
-        </mesh>
-      ))}
 
       {/* 3. Synaptic Stardust Nebula around the brain */}
       <points ref={stardustRef} geometry={stardustGeo} frustumCulled={false}>

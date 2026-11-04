@@ -11,7 +11,7 @@ export function Footer() {
   return (
     <footer className="footer">
       <span className="footer-note">
-        © {PROFILE.year} <b>D/P</b> — {t('footer.note')}
+        © {PROFILE.year} <b>{PROFILE.mark}</b> — {t('footer.note')}
       </span>
       <div className="footer-links">
         <a href={PROFILE.github} target="_blank" rel="noreferrer">
