@@ -14,5 +14,8 @@ dist-ssr
 npm-debug.log*
 coverage
 shots
+shots-redesign
+target-study
+scripts
 verify-report.json
 lighthouse-report.json

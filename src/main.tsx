@@ -1,10 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import '@fontsource-variable/inter'
-import '@fontsource-variable/space-grotesk'
-import './styles/global.css'
-import './styles/sections.css'
-import './styles/mocks.css'
+import '@fontsource-variable/inter-tight'
+import './styles/site.css'
+import './styles/site-sections.css'
 import App from './App'
 import { I18nProvider } from './i18n/provider'
 
