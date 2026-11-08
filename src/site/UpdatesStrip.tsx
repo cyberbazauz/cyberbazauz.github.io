@@ -89,13 +89,18 @@ export function UpdatesStrip({ onOpen }: UpdatesStripProps) {
       startScroll = rail.scrollLeft
       offset = startScroll
       rail.classList.add('is-dragging')
-      rail.setPointerCapture(event.pointerId)
+      // Capture only after the pointer actually moves (see onMove). Capturing on
+      // pointerdown retargets the pointerup to the rail, which makes the browser
+      // dispatch `click` on the rail instead of the card button — so cards never open.
     }
 
     const onMove = (event: PointerEvent) => {
       if (!dragging) return
       const dx = event.clientX - startX
       moved = Math.max(moved, Math.abs(dx))
+      if (moved > 8 && !rail.hasPointerCapture(event.pointerId)) {
+        rail.setPointerCapture(event.pointerId)
+      }
       offset = startScroll - dx
       rail.scrollLeft = offset
     }
@@ -103,7 +108,7 @@ export function UpdatesStrip({ onOpen }: UpdatesStripProps) {
     const onUp = (event: PointerEvent) => {
       if (!dragging) return
       dragging = false
-      suppressClick.current = moved > 8
+      suppressClick.current = event.type !== 'pointercancel' && moved > 8
       rail.classList.remove('is-dragging')
       if (rail.hasPointerCapture(event.pointerId)) {
         rail.releasePointerCapture(event.pointerId)

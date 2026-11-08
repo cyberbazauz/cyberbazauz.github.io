@@ -1,16 +1,18 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Check, Copy, Mail, MapPin, Send, Send as Telegram } from 'lucide-react'
 import { PROFILE } from '../data/profile'
+import { contactServiceReady, submitContact } from '../lib/contact'
 import { useSiteCopy } from './content'
 import { cx } from '../lib/utils'
 
-type FormStatus = 'idle' | 'sending' | 'sent' | 'error'
+type FormStatus = 'idle' | 'sending' | 'sent' | 'mailto' | 'invalid' | 'error'
 
 export function ContactSection() {
   const copy = useSiteCopy()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [company, setCompany] = useState('')
   const [status, setStatus] = useState<FormStatus>('idle')
   const [copied, setCopied] = useState(false)
   const timers = useRef<number[]>([])
@@ -21,21 +23,27 @@ export function ContactSection() {
     }
   }, [])
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    if (status === 'sending') return
     if (!name.trim() || !email.trim() || !message.trim()) {
-      setStatus('error')
+      setStatus('invalid')
+      return
+    }
+
+    // Hidden honeypot: real visitors never fill it, bots usually do.
+    if (company.trim()) {
+      setStatus('sent')
       return
     }
 
     setStatus('sending')
-    const subject = encodeURIComponent(`Portfolio — ${name.trim()}`)
-    const body = encodeURIComponent(
-      `${message.trim()}\n\n—\n${name.trim()}\n${email.trim()}`,
-    )
-    window.location.href = `mailto:${PROFILE.email}?subject=${subject}&body=${body}`
-    const id = window.setTimeout(() => setStatus('sent'), 600)
-    timers.current.push(id)
+    const outcome = await submitContact({
+      name: name.trim(),
+      email: email.trim(),
+      message: message.trim(),
+    })
+    setStatus(outcome === 'mailto' ? 'mailto' : outcome)
   }
 
   const copyEmail = async () => {
@@ -123,6 +131,19 @@ export function ContactSection() {
           </div>
 
           <form className="contact__form" onSubmit={onSubmit} noValidate>
+            <div className="contact__hp" aria-hidden="true">
+              <label>
+                Company
+                <input
+                  type="text"
+                  name="company"
+                  autoComplete="off"
+                  tabIndex={-1}
+                  value={company}
+                  onChange={(event) => setCompany(event.target.value)}
+                />
+              </label>
+            </div>
             <div className="contact__fields">
               <label className="contact__field">
                 <span>{copy.contact.form.name}</span>
@@ -162,21 +183,29 @@ export function ContactSection() {
             </div>
 
             <div className="contact__form-footer">
-              <p className="contact__note">{copy.contact.form.note}</p>
+              <p className="contact__note">
+                {contactServiceReady
+                  ? copy.contact.form.note
+                  : copy.contact.form.noteFallback}
+              </p>
               <div className="contact__submit-wrap">
                 <p
                   className={cx(
                     'contact__status',
-                    status === 'error' && 'is-error',
-                    status === 'sent' && 'is-success',
+                    (status === 'invalid' || status === 'error') && 'is-error',
+                    (status === 'sent' || status === 'mailto') && 'is-success',
                   )}
                   aria-live="polite"
                 >
-                  {status === 'error'
+                  {status === 'invalid'
                     ? copy.contact.form.error
-                    : status === 'sent'
-                      ? copy.contact.form.sent
-                      : ''}
+                    : status === 'error'
+                      ? copy.contact.form.failed
+                      : status === 'sent'
+                        ? copy.contact.form.sent
+                        : status === 'mailto'
+                          ? copy.contact.form.sentMailto
+                          : ''}
                 </p>
                 <button type="submit" className="btn-primary contact__submit">
                   {status === 'sending' ? copy.contact.form.sending : copy.contact.form.submit}

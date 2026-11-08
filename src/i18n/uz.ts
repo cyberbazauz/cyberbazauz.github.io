@@ -150,6 +150,30 @@ const uz: Messages = {
     fieldResult: 'Natija',
     technologyAria: 'Texnologiyalar',
     content: {
+      'agrovet-ai': {
+        subtitle: 'Raqamli veterinariya va ferma boshqaruvi',
+        tags: ['VETERINARIYA', 'FERMA HISOBI', 'AI YORDAMCHI', 'OFFLAYN SINXRON', 'ANDROID / WEB'],
+        description:
+          "Hayvonlarning elektron kartalari va pasporti, emlash jadvali, ferma daromad va xarajatlari hisobi, ratsionlar, vazifalar va uch tilda simptomlar bo'yicha AI yordamchi.",
+        role: 'Full-stack / Mahsulot',
+        type: 'AI platforma',
+        case: {
+          overview:
+            "Fermer va veterinar uchun yagona ish joyi: har bir hayvon, emlash, xarajat va vazifa — qog'oz kartalar va daftarlar o'rniga bitta ilovada.",
+          challenge:
+            "Fermalar qog'oz tibbiy kartalar va daftarlar bilan ishlaydi: emlashlar o'tkazib yuboriladi, daromad va xarajatlar hisobga olinmaydi, hayvon ma'lumotlari tekshiruv yoki sotuv paytida yo'qoladi.",
+          solution:
+            "Elektron hayvon kartalari va pasporti, emlash eslatmalari, ferma hisobi, ratsionlar, kalendar va vazifalar, ombor, genetika, PRO sensorlar va simptomlar bo'yicha AI yordamchi. Android va kompyuterda oflayn ishlaydi, keyin sinxronlanadi, ma'lumotlar o'z serveringizda saqlanadi.",
+          result:
+            "Platforma agrovetai.uz manzilida ishlamoqda: fermer poda, emlash va moliyani bitta ilovada yuritadi, AI yordamchi esa uch tilda simptomlar bo'yicha javob beradi.",
+          technology: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Offlayn sinxron', 'AI yordamchi', 'Android / PWA'],
+          stats: [
+            { value: 'LIVE', label: 'Ishlayotgan mahsulot' },
+            { value: '3', label: 'Til (UZ/RU/EN)' },
+            { value: 'Oflayn', label: 'Internetsiz' },
+          ],
+        },
+      },
       yotoqhonam: {
         subtitle: 'Yotoqxona boshqaruv platformasi',
         tags: ['HISOB', 'AVTOMATLASHTIRISH', 'AI'],

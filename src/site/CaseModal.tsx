@@ -62,7 +62,7 @@ export function CaseModal({ project, onClose }: CaseModalProps) {
             <div className="case-modal__meta">
               <span className="status-pill">
                 <i aria-hidden="true" />
-                {copy.projects.status}
+                {copy.projects.status[project.status ?? 'mvp']}
               </span>
               <span>
                 {copy.modal.label} · {copy.categories[project.category]}

@@ -150,6 +150,30 @@ const en: Messages = {
     fieldResult: 'Result',
     technologyAria: 'Technology',
     content: {
+      'agrovet-ai': {
+        subtitle: 'Digital Veterinary & Farm Management Platform',
+        tags: ['VETERINARY', 'FARM ACCOUNTING', 'AI ASSISTANT', 'OFFLINE SYNC', 'ANDROID / WEB'],
+        description:
+          'Digital animal cards and passports, vaccination schedules, farm income and expense accounting, rations, tasks and an AI symptom assistant in Uzbek, Russian and English.',
+        role: 'Full-stack / Product',
+        type: 'AI Platform',
+        case: {
+          overview:
+            'A single workspace for farmers and veterinarians: every animal, vaccination, expense and task in one place instead of paper cards and notebooks.',
+          challenge:
+            'Farms run on paper medical cards and notebooks: vaccinations get missed, income and expenses are never reconciled, and animal records are lost exactly when they are needed for inspections or sales.',
+          solution:
+            'Digital animal cards and passports, vaccination reminders, farm accounting, rations, calendar and tasks, warehouse, genetics, PRO sensors and an AI symptom assistant — working offline on Android and PC with later sync and self-hosted data.',
+          result:
+            'The product is live at agrovetai.uz: farmers run the herd, vaccinations and finances from one app, and the AI assistant answers symptom questions in three languages.',
+          technology: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Offline Sync', 'AI Assistant', 'Android / PWA'],
+          stats: [
+            { value: 'LIVE', label: 'Working product' },
+            { value: '3', label: 'Languages (UZ/RU/EN)' },
+            { value: 'Offline', label: 'No-internet mode' },
+          ],
+        },
+      },
       yotoqhonam: {
         subtitle: 'Dormitory Management Platform',
         tags: ['ACCOUNTING', 'AUTOMATION', 'AI'],

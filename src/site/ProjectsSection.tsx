@@ -130,7 +130,7 @@ export function ProjectsSection({ onOpen }: ProjectsSectionProps) {
                     <td>
                       <span className="status-pill">
                         <i aria-hidden="true" />
-                        {copy.projects.status}
+                        {copy.projects.status[project.status ?? 'mvp']}
                       </span>
                     </td>
                     <td>
@@ -189,7 +189,7 @@ function ProjectCard({
         <span className="project-card__meta">
           <span className="status-pill">
             <i aria-hidden="true" />
-            {copy.projects.status}
+            {copy.projects.status[project.status ?? 'mvp']}
           </span>
           <span className="project-card__field">{copy.categories[project.category]}</span>
         </span>
@@ -240,7 +240,7 @@ function ProjectFeature({
     >
       <span className="project-featured__bg" aria-hidden="true">
         <span className="hero-beams" />
-        <span className="project-featured__wordmark">{project.title.split('-')[0]}</span>
+        <span className="project-featured__wordmark">{project.title.split(/[\s-]/)[0]}</span>
         <span className="hero-grain" />
       </span>
 
@@ -249,7 +249,7 @@ function ProjectFeature({
           <span className="project-featured__meta">
             <span className="status-pill">
               <i aria-hidden="true" />
-              {copy.projects.status}
+              {copy.projects.status[project.status ?? 'mvp']}
             </span>
             <span className="project-featured__field">
               {copy.categories[project.category]}

@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import { useSiteCopy } from './content'
-import { HeroCanvas } from './HeroCanvas'
 import { HeroScene } from './HeroScene'
 import { cx } from '../lib/utils'
 
@@ -47,11 +46,15 @@ export function Hero() {
 
         element.style.opacity = opacity.toFixed(3)
         element.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`
-        element.style.filter = opacity > 0.995 ? 'none' : `blur(${((1 - opacity) * 5).toFixed(2)}px)`
-        element.style.visibility = opacity > 0.004 ? 'visible' : 'hidden'
-        element.style.pointerEvents =
+
+        // Avoid redundant style writes: only touch layout-affecting props on change.
+        const visible = opacity > 0.004 ? 'visible' : 'hidden'
+        if (element.style.visibility !== visible) element.style.visibility = visible
+        const pointer =
           opacity > 0.62 && window.innerWidth >= 1024 ? 'auto' : 'none'
-        element.style.zIndex = String(Math.round(100 - distance * 100))
+        if (element.style.pointerEvents !== pointer) element.style.pointerEvents = pointer
+        const z = String(Math.round(100 - distance * 100))
+        if (element.style.zIndex !== z) element.style.zIndex = z
 
         if (opacity > bestOpacity) {
           bestOpacity = opacity
@@ -104,7 +107,6 @@ export function Hero() {
             ))}
           </div>
         </div>
-        <HeroCanvas />
         <HeroScene progressRef={progressRef} />
         <div className="hero-grain" aria-hidden="true" />
         <div className="hero-vignette" aria-hidden="true" />

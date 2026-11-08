@@ -69,7 +69,7 @@ export interface SiteCopy {
     table: string
     all: string
     readCase: string
-    status: string
+    status: { live: string; mvp: string }
     columns: {
       project: string
       year: string
@@ -127,10 +127,13 @@ export interface SiteCopy {
       message: string
       messagePlaceholder: string
       note: string
+      noteFallback: string
       submit: string
       sending: string
       sent: string
+      sentMailto: string
       error: string
+      failed: string
       required: string
     }
   }
@@ -195,10 +198,10 @@ const ru: SiteCopy = {
       {
         title: 'Искусственный интеллект, приносящий результат',
         body:
-          'Проектирую и создаю AI-системы — от компьютерного зрения и антифрода до автономных агентов и интерфейсов. Измеряю результат работающим продуктом, а не обещаниями.',
+          'Проектирую и создаю AI-системы — от компьютерного зрения и антифрода до автономных агентов и интерфейсов. Измеряю результат работающим прототипом, а не обещаниями.',
       },
       {
-        title: 'От идеи до продакшена без компромиссов',
+        title: 'От исследования до MVP без компромиссов',
         body:
           'Полный цикл: исследование, архитектура, обучение моделей, интерфейс и запуск. Каждый проект — это система, которую можно проверить, измерить и сопровождать.',
       },
@@ -224,11 +227,12 @@ const ru: SiteCopy = {
   },
   updates: {
     label: 'Избранное',
-    heading: 'Проекты, которые',
-    em: 'уже работают',
+    heading: 'Кейсы и',
+    em: 'исследования',
     sub: 'Несколько систем из портфеля — от автономных дронов до threat intelligence. Каждый кейс можно открыть и изучить целиком.',
     kicker: 'Кейс',
     items: [
+      { projectId: 'agrovet-ai', tag: 'Veterinary AI', date: '2026' },
       { projectId: 'sputnik-ai', tag: 'Digital Twin', date: '2026' },
       { projectId: 'passive-agent', tag: 'Threat Intel', date: '2026' },
       { projectId: 'med-vision', tag: 'Edge AI', date: '2026' },
@@ -262,15 +266,15 @@ const ru: SiteCopy = {
   },
   projects: {
     label: 'Проекты',
-    heading: 'Проекты, которые уже',
-    em: 'работают',
+    heading: 'Проекты: от MVP',
+    em: 'до живого продукта',
     sub:
-      'Реальные кейсы: компьютерное зрение, автономные системы, кибербезопасность и веб-платформы. Переключайтесь между карточками и таблицей.',
+      'Кейсы из портфеля: компьютерное зрение, автономные системы, кибербезопасность и веб-платформы. AgroVet AI уже работает в продакшене, остальные проекты исследованы и доведены до MVP — переключайтесь между карточками и таблицей.',
     cards: 'Карточки',
     table: 'Таблица',
     all: 'Все проекты',
     readCase: 'Читать кейс',
-    status: 'В продакшене',
+    status: { live: 'LIVE · в продакшене', mvp: 'MVP · исследование' },
     columns: {
       project: 'Проект',
       year: 'Год',
@@ -291,9 +295,9 @@ const ru: SiteCopy = {
     heading: 'Цифры, которые',
     em: 'говорят сами за себя',
     sub:
-      'Метрики из реальных проектов — не расчётные обещания. Детекция, скорость, точность и масштаб систем, которые уже работают.',
+      'Метрики из исследований и MVP — не расчётные обещания. Детекция, скорость, точность и масштаб проверенных прототипов.',
     stats: [
-      { prefix: '', value: 19, suffix: '+', decimals: 0, label: 'проектов в портфеле' },
+      { prefix: '', value: 20, suffix: '+', decimals: 0, label: 'проектов в портфеле' },
       { prefix: '', value: 50, suffix: 'K+', decimals: 0, label: 'угроз проанализировано' },
       { prefix: '', value: 98.7, suffix: '%', decimals: 1, label: 'точность детекции скама' },
       { prefix: '<', value: 16, suffix: 'ms', decimals: 0, label: 'бюджет кадра в 3D-системах' },
@@ -325,7 +329,7 @@ const ru: SiteCopy = {
       },
       {
         q: 'Как строится работа над проектом?',
-        a: 'Сначала разбираем задачу и метрику успеха, затем проектируем архитектуру и собираем прототип. После проверки на реальных данных доводим до продакшена и сопровождаем.',
+        a: 'Сначала разбираем задачу и метрику успеха, затем проектируем архитектуру и собираем прототип. После проверки на реальных данных доводим до MVP и сопровождаем.',
       },
       {
         q: 'Сколько стоит проект?',
@@ -356,16 +360,19 @@ const ru: SiteCopy = {
       emailPlaceholder: 'you@company.com',
       message: 'Задача',
       messagePlaceholder: 'Кратко опишите задачу, данные и желаемый результат',
-      note: 'Сообщение откроется в вашем почтовом клиенте. Личные данные не передаются третьим лицам.',
+      note: 'Отправляется напрямую на мою почту. Личные данные не передаются третьим лицам.',
+      noteFallback: 'Откроется ваш почтовый клиент — сообщение нужно будет отправить вручную.',
       submit: 'Отправить',
-      sending: 'Открываю почту…',
-      sent: 'Письмо готово к отправке',
+      sending: 'Отправляю…',
+      sent: 'Сообщение отправлено',
+      sentMailto: 'Письмо готово — отправьте его из почтового клиента',
       error: 'Заполните имя, email и описание задачи',
+      failed: 'Не удалось отправить. Попробуйте ещё раз или напишите на почту.',
       required: 'обязательно',
     },
   },
   footer: {
-    blurb: 'Проектирую AI-системы для реальных задач: компьютерное зрение, безопасность, автономные устройства и интерфейсы — от прототипа до продакшена.',
+    blurb: 'Проектирую AI-системы для реальных задач: компьютерное зрение, безопасность, автономные устройства и интерфейсы — от исследования до MVP.',
     cta: 'Связаться',
     sections: 'Разделы',
     more: 'Ещё',
@@ -425,10 +432,10 @@ const en: SiteCopy = {
       {
         title: 'Artificial intelligence that delivers results',
         body:
-          'I design and build AI systems — from computer vision and anti-fraud to autonomous agents and interfaces. I measure success by working products, not promises.',
+          'I design and build AI systems — from computer vision and anti-fraud to autonomous agents and interfaces. I measure success by working prototypes, not promises.',
       },
       {
-        title: 'From idea to production, without compromise',
+        title: 'From research to MVP, without compromise',
         body:
           'End to end: research, architecture, model training, interface and launch. Every project is a system you can inspect, measure and maintain.',
       },
@@ -454,11 +461,12 @@ const en: SiteCopy = {
   },
   updates: {
     label: 'Selected work',
-    heading: 'Projects already',
-    em: 'in production',
+    heading: 'Cases and',
+    em: 'research',
     sub: 'A few systems from the portfolio — from autonomous drones to threat intelligence. Open any case and explore it end to end.',
     kicker: 'Case',
     items: [
+      { projectId: 'agrovet-ai', tag: 'Veterinary AI', date: '2026' },
       { projectId: 'sputnik-ai', tag: 'Digital Twin', date: '2026' },
       { projectId: 'passive-agent', tag: 'Threat Intel', date: '2026' },
       { projectId: 'med-vision', tag: 'Edge AI', date: '2026' },
@@ -492,15 +500,15 @@ const en: SiteCopy = {
   },
   projects: {
     label: 'Projects',
-    heading: 'Projects already',
-    em: 'doing the work',
+    heading: 'Projects from MVP',
+    em: 'to a live product',
     sub:
-      'Real cases: computer vision, autonomous systems, cybersecurity and web platforms. Switch between cards and the full table.',
+      'Cases from the portfolio: computer vision, autonomous systems, cybersecurity and web platforms. AgroVet AI is live in production; the rest are researched and taken to a working MVP — switch between cards and the full table.',
     cards: 'Cards',
     table: 'Table',
     all: 'All projects',
     readCase: 'Read case',
-    status: 'In production',
+    status: { live: 'LIVE · in production', mvp: 'MVP · research' },
     columns: {
       project: 'Project',
       year: 'Year',
@@ -521,9 +529,9 @@ const en: SiteCopy = {
     heading: 'Numbers that',
     em: 'speak for themselves',
     sub:
-      'Metrics from real projects, not theoretical promises. Detection, speed, accuracy and the scale of systems already in use.',
+      'Metrics from research and MVPs, not theoretical promises. Detection, speed, accuracy and the scale of validated prototypes.',
     stats: [
-      { prefix: '', value: 19, suffix: '+', decimals: 0, label: 'projects in the portfolio' },
+      { prefix: '', value: 20, suffix: '+', decimals: 0, label: 'projects in the portfolio' },
       { prefix: '', value: 50, suffix: 'K+', decimals: 0, label: 'threats analysed' },
       { prefix: '', value: 98.7, suffix: '%', decimals: 1, label: 'scam detection accuracy' },
       { prefix: '<', value: 16, suffix: 'ms', decimals: 0, label: 'frame budget in 3D systems' },
@@ -555,7 +563,7 @@ const en: SiteCopy = {
       },
       {
         q: 'How does a project unfold?',
-        a: 'We start with the problem and the success metric, then design the architecture and build a prototype. After validation on real data it goes to production and ongoing support.',
+        a: 'We start with the problem and the success metric, then design the architecture and build a prototype. After validation on real data we take it to MVP and ongoing support.',
       },
       {
         q: 'How much does a project cost?',
@@ -586,16 +594,19 @@ const en: SiteCopy = {
       emailPlaceholder: 'you@company.com',
       message: 'The task',
       messagePlaceholder: 'Briefly describe the problem, data and desired outcome',
-      note: 'Your message will open in your email client. No personal data is shared with third parties.',
+      note: 'Sent straight to my inbox. No personal data is shared with third parties.',
+      noteFallback: 'Your email client will open — send the message from there.',
       submit: 'Send',
-      sending: 'Opening email…',
-      sent: 'Your email is ready to send',
+      sending: 'Sending…',
+      sent: 'Message sent',
+      sentMailto: 'Your email is ready — send it from your email client',
       error: 'Please fill in your name, email and the task',
+      failed: 'Could not send the message. Try again or email me directly.',
       required: 'required',
     },
   },
   footer: {
-    blurb: 'I design and support AI systems that improve real processes: computer vision, security, autonomous devices and interfaces — from prototype to production.',
+    blurb: 'I design and support AI systems that improve real processes: computer vision, security, autonomous devices and interfaces — from research to MVP.',
     cta: 'Get in touch',
     sections: 'Sections',
     more: 'More',
@@ -655,10 +666,10 @@ const uz: SiteCopy = {
       {
         title: 'Natija beradigan sun’iy intellekt',
         body:
-          'Kompyuter ko‘rishidan antifrod va avtonom agentlargacha — AI tizimlarini loyihalayman va ishga tushiraman. Natijani va’da bilan emas, ishlayotgan mahsulot bilan o‘lchayman.',
+          'Kompyuter ko‘rishidan antifrod va avtonom agentlargacha — AI tizimlarini loyihalayman va ishga tushiraman. Natijani va’da bilan emas, ishlayotgan prototip bilan o‘lchayman.',
       },
       {
-        title: 'G‘oyadan productiongacha, murosasiz',
+        title: 'G‘oyadan MVPgacha, murosasiz',
         body:
           'To‘liq sikl: tadqiqot, arxitektura, model o‘qitish, interfeys va ishga tushirish. Har bir loyiha tekshirish, o‘lchash va qo‘llab-quvvatlash mumkin bo‘lgan tizim.',
       },
@@ -684,11 +695,12 @@ const uz: SiteCopy = {
   },
   updates: {
     label: 'Tanlangan ishlar',
-    heading: 'Allaqachon ishlayotgan',
-    em: 'loyihalar',
+    heading: 'Keyslar va',
+    em: 'tadqiqotlar',
     sub: 'Portfeldan bir nechta tizim — avtonom dronlardan threat intelligencegacha. Har bir keysni ochib, to‘liq o‘rganish mumkin.',
     kicker: 'Keys',
     items: [
+      { projectId: 'agrovet-ai', tag: 'Veterinariya AI', date: '2026' },
       { projectId: 'sputnik-ai', tag: 'Digital Twin', date: '2026' },
       { projectId: 'passive-agent', tag: 'Threat Intel', date: '2026' },
       { projectId: 'med-vision', tag: 'Edge AI', date: '2026' },
@@ -722,15 +734,15 @@ const uz: SiteCopy = {
   },
   projects: {
     label: 'Loyihalar',
-    heading: 'Ishlayotgan',
-    em: 'loyihalar',
+    heading: 'MVPdan',
+    em: 'jonli mahsulotgacha',
     sub:
-      'Real keyslar: kompyuter ko‘rishi, avtonom tizimlar, kiberxavfsizlik va veb-platformalar. Kartalar va jadval o‘rtasida almashib ko‘ring.',
+      'Portfeldagi keyslar: kompyuter ko‘rishi, avtonom tizimlar, kiberxavfsizlik va veb-platformalar. AgroVet AI allaqachon ishlab chiqarishda, qolgan loyihalar tadqiq qilingan va MVP darajasiga yetkazilgan — kartalar va jadval o‘rtasida almashib ko‘ring.',
     cards: 'Kartalar',
     table: 'Jadval',
     all: 'Barcha loyihalar',
     readCase: 'Keysni o‘qish',
-    status: 'Ishlab chiqarishda',
+    status: { live: 'LIVE · ishlab chiqarishda', mvp: 'MVP · tadqiqot' },
     columns: {
       project: 'Loyiha',
       year: 'Yil',
@@ -751,9 +763,9 @@ const uz: SiteCopy = {
     heading: 'O‘zi uchun',
     em: 'gapiradigan raqamlar',
     sub:
-      'Real loyihalardan olingan ko‘rsatkichlar — nazariy va’dalar emas. Allaqachon ishlayotgan tizimlarning aniqlik, tezlik va ko‘lami.',
+      'Tadqiqot va MVPlardan olingan ko‘rsatkichlar — nazariy va’dalar emas. Tekshirilgan prototiplarning aniqlik, tezlik va ko‘lami.',
     stats: [
-      { prefix: '', value: 19, suffix: '+', decimals: 0, label: 'portfeldagi loyihalar' },
+      { prefix: '', value: 20, suffix: '+', decimals: 0, label: 'portfeldagi loyihalar' },
       { prefix: '', value: 50, suffix: 'K+', decimals: 0, label: 'tahlil qilingan tahdidlar' },
       { prefix: '', value: 98.7, suffix: '%', decimals: 1, label: 'skam aniqlash aniqligi' },
       { prefix: '<', value: 16, suffix: 'ms', decimals: 0, label: '3D tizimlarda kadr byudjeti' },
@@ -785,7 +797,7 @@ const uz: SiteCopy = {
       },
       {
         q: 'Loyiha ustida ish qanday quriladi?',
-        a: 'Avval vazifa va muvaffaqiyat ko‘rsatkichini aniqlaymiz, keyin arxitektura loyihalanadi va prototip yig‘iladi. Real ma’lumotlarda tekshirgandan so‘ng productionga chiqaramiz va qo‘llab-quvvatlaymiz.',
+        a: 'Avval vazifa va muvaffaqiyat ko‘rsatkichini aniqlaymiz, keyin arxitektura loyihalanadi va prototip yig‘iladi. Real ma’lumotlarda tekshirgandan so‘ng MVP darajasiga yetkazamiz va qo‘llab-quvvatlaymiz.',
       },
       {
         q: 'Loyiha qancha turadi?',
@@ -816,16 +828,19 @@ const uz: SiteCopy = {
       emailPlaceholder: 'you@company.com',
       message: 'Vazifa',
       messagePlaceholder: 'Vazifa, ma’lumot va kerakli natijani qisqacha yozing',
-      note: 'Xabar pochta ilovangizda ochiladi. Shaxsiy ma’lumotlar uchinchi shaxslarga berilmaydi.',
+      note: 'To‘g‘ridan-to‘g‘ri pochtamga yuboriladi. Shaxsiy ma’lumotlar uchinchi shaxslarga berilmaydi.',
+      noteFallback: 'Pochta ilovangiz ochiladi — xabarni o‘shandan yuboring.',
       submit: 'Yuborish',
-      sending: 'Pochta ochilmoqda…',
-      sent: 'Xat yuborishga tayyor',
+      sending: 'Yuborilmoqda…',
+      sent: 'Xabar yuborildi',
+      sentMailto: 'Xat tayyor — uni pochta ilovangizdan yuboring',
       error: 'Ism, email va vazifani to‘ldiring',
+      failed: 'Yuborib bo‘lmadi. Qayta urinib ko‘ring yoki pochtaga yozing.',
       required: 'majburiy',
     },
   },
   footer: {
-    blurb: 'Real vazifalar uchun AI tizimlarini loyihalayman: kompyuter ko‘rishi, xavfsizlik, avtonom qurilmalar va interfeyslar — prototipdan productiongacha.',
+    blurb: 'Real vazifalar uchun AI tizimlarini loyihalayman: kompyuter ko‘rishi, xavfsizlik, avtonom qurilmalar va interfeyslar — tadqiqotdan MVPgacha.',
     cta: "Bog'lanish",
     sections: 'Bo‘limlar',
     more: 'Yana',

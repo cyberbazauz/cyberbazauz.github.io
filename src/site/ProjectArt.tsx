@@ -60,6 +60,8 @@ function renderArt(visual: VisualKey, category: string, uid: string) {
     case 'yotoqhonam':
     case 'hizmattop':
       return <Dashboard />
+    case 'agrovet':
+      return <AgroVet uid={uid} />
     default:
       return category === 'security' ? <ThreatMap uid={uid} /> : <GridField uid={uid} />
   }
@@ -192,7 +194,7 @@ function ThreatMap({ uid }: { uid: string }) {
           </g>
         ))}
       </svg>
-      <ArtFrame label="THREAT / ANALYSIS" right="LIVE · 24/7" />
+      <ArtFrame label="THREAT / ANALYSIS" right="MVP · 2026" />
     </>
   )
 }
@@ -447,7 +449,115 @@ function Dashboard() {
         </g>
         <circle cx="322" cy="43" r="4" fill="#10b981" />
       </svg>
-      <ArtFrame label="PLATFORM / OPERATIONS" right="LIVE DATA" />
+      <ArtFrame label="PLATFORM / OPERATIONS" right="MVP · 2026" />
+    </>
+  )
+}
+
+function AgroVet({ uid }: { uid: string }) {
+  return (
+    <>
+      <svg viewBox="0 0 400 190" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id={`${uid}-agro-bg`} x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#ecfdf5" />
+            <stop offset="1" stopColor="#f8fafc" />
+          </linearGradient>
+          <radialGradient id={`${uid}-agro-glow`} cx="50%" cy="48%" r="56%">
+            <stop offset="0" stopColor="#10b981" stopOpacity="0.22" />
+            <stop offset="1" stopColor="#10b981" stopOpacity="0" />
+          </radialGradient>
+          <linearGradient id={`${uid}-agro-line`} x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#10b981" stopOpacity="0" />
+            <stop offset=".5" stopColor="#10b981" />
+            <stop offset="1" stopColor="#10b981" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+
+        <rect width="400" height="190" fill={`url(#${uid}-agro-bg)`} />
+        <circle cx="205" cy="94" r="88" fill={`url(#${uid}-agro-glow)`} />
+
+        <g stroke="rgba(6,78,59,.06)" strokeWidth="1">
+          {[30, 60, 90, 120, 150, 180].map((y) => (
+            <line key={y} x1="0" y1={y} x2="400" y2={y} />
+          ))}
+        </g>
+
+        <rect x="36" y="40" width="148" height="112" rx="12" fill="#fff" stroke="rgba(6,78,59,.12)" />
+        <rect x="50" y="54" width="52" height="5" rx="2.5" fill="rgba(6,78,59,.45)" />
+        <rect x="50" y="65" width="34" height="4" rx="2" fill="rgba(6,78,59,.18)" />
+
+        <g fill="none" stroke="#059669" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M84 78c-7-3-12-9-12-15 0-4 4-6 7-4l9 5" />
+          <path d="M136 78c7-3 12-9 12-15 0-4-4-6-7-4l-9 5" />
+          <path d="M90 79c0-9 8-16 20-16s20 7 20 16v14c0 15-9 26-20 26s-20-11-20-26V79Z" />
+          <circle cx="102" cy="91" r="1.7" fill="#059669" />
+          <circle cx="118" cy="91" r="1.7" fill="#059669" />
+          <ellipse cx="110" cy="107" rx="11" ry="7" />
+          <circle cx="106" cy="107" r="1" fill="#059669" />
+          <circle cx="114" cy="107" r="1" fill="#059669" />
+        </g>
+
+        <rect x="126" y="66" width="18" height="12" rx="3" fill="#ecfdf5" stroke="#10b981" />
+        <path d="M130 72h10" stroke="#10b981" />
+
+        <rect x="50" y="132" width="72" height="4" rx="2" fill="rgba(6,78,59,.14)" />
+        <rect x="50" y="140" width="48" height="4" rx="2" fill="rgba(6,78,59,.1)" />
+
+        <rect x="200" y="42" width="164" height="108" rx="12" fill="rgba(255,255,255,.78)" stroke="rgba(6,78,59,.1)" />
+
+        {[0, 1, 2].map((row) => {
+          const cy = 66 + row * 26
+          return (
+            <g key={row}>
+              <circle
+                cx="220"
+                cy={cy}
+                r="7"
+                fill={row === 0 ? 'rgba(16,185,129,.16)' : 'rgba(6,78,59,.05)'}
+              />
+              {row === 0 ? (
+                <path
+                  d={`M216.5 ${cy - 2}l2.5 2.5 4-4.5`}
+                  fill="none"
+                  stroke="#059669"
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              ) : (
+                <circle cx="220" cy={cy} r="1.6" fill="rgba(6,78,59,.3)" />
+              )}
+              <rect
+                x="234"
+                y={cy - 5}
+                width={row === 0 ? 76 : 54}
+                height="4"
+                rx="2"
+                fill={row === 0 ? 'rgba(6,78,59,.4)' : 'rgba(6,78,59,.22)'}
+              />
+              <rect x="234" y={cy + 3} width="38" height="3" rx="1.5" fill="rgba(6,78,59,.12)" />
+            </g>
+          )
+        })}
+
+        <line x1="212" y1="136" x2="352" y2="136" stroke={`url(#${uid}-agro-line)`} />
+        <path
+          d="M214 136h12l5-8 6 16 5-8h10"
+          fill="none"
+          stroke="#059669"
+          strokeWidth="1.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+
+        <circle cx="344" cy="58" r="3" fill="#10b981" />
+        <circle cx="344" cy="58" r="7" fill="none" stroke="rgba(16,185,129,.35)">
+          <animate attributeName="r" values="4;9;4" dur="4s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values=".7;0;.7" dur="4s" repeatCount="indefinite" />
+        </circle>
+      </svg>
+      <ArtFrame label="VETERINARY / FARM AI" right="LIVE · AGROVETAI.UZ" />
     </>
   )
 }
